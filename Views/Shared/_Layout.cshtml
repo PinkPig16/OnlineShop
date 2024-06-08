@@ -29,11 +29,23 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-dark me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <button type="button" class="btn btn-outline-dark me-2" id="loginButton">Войти</button>
+                    <button type="button" class="btn btn-warning" id="RegistrationButton">Регистрация</button>
                 </div>
             </div>
         </div>
+        <script>
+            // Добавление обработчика события click для кнопки
+            document.getElementById('loginButton').onclick = function () {
+                window.location.href = '/Login';  // Укажите путь к вашему контроллеру
+            };
+        </script>
+        <script>
+            // Добавление обработчика события click для кнопки
+            document.getElementById('RegistrationButton').onclick = function () {
+                window.location.href = '/Register';  // Укажите путь к вашему контроллеру
+            };
+        </script>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
