@@ -2,8 +2,8 @@
 
 namespace OnlineShop.Controllers
 {
-
-    public class RegisterController : Controller
+    [Route("/checkout")]
+    public class CheckoutController : Controller
     {
         [HttpGet]
         public IActionResult Index()

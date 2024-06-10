@@ -17,12 +17,6 @@ namespace OnlineShop.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-/*            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.HasKey(p => p.Id); // Определение первичного ключа
-                // Дополнительные настройки
-            });*/
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

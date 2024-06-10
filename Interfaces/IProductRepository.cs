@@ -6,6 +6,7 @@ namespace OnlineShop.Interfaces
     {
         Task<IEnumerable<Product>> FindAll();
         Task<Product> GetById(Guid id);
+        Task<Product> GetByName(string name);
         bool Add(Product product);
         bool Update(Product product);
         bool Delete(Product product);

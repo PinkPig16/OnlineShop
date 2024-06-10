@@ -16,8 +16,18 @@
                             <p class="card-text">@item.Description</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a asp-controller="Product" asp-action="Details" asp-route-id=@item.Id class="btn btn-sm btn-outline-secondary">View</a>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <button onclick="submitForm('@item.NameUrl', '@item.Id')" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <form id="formView" method="post" style="display:none;">
+                                        <input type="hidden" name="nameUrl" id="nameUrlField">
+                                        <input type="hidden" name="id" id="idField">
+                                    </form>
+
+                                    <button onclick="subminProd('1','@item.Price')" class="btn btn-sm btn-outline-secondary">Купить @item.Price @item.Stock</button>
+                                    <form id="formBuy" method="post" style="display:none;">
+                                        <input type="hidden" name="productCount" id="productCount">
+                                        <input type="hidden" name="productSum" id="productSum">
+                                    </form> 
+
                                 </div>
                                 <small class="text-body-secondary">9 mins</small>
                             </div>
@@ -25,6 +35,22 @@
                     </div>
                 </div>
             }
+            <script>
+                function subminProd(stock, price) {
+                    document.getElementById('formBuy').action = '/product/AddProduct';
+                    document.getElementById('productCount').value = stock;
+                    document.getElementById('productSum').value = price;
+                    document.getElementById('formBuy').submit();
+                }
+            </script>
+            <script>
+                function submitForm(nameUrl, id) {
+                    document.getElementById('formView').action = '/product/' + nameUrl;
+                    document.getElementById('nameUrlField').value = nameUrl;
+                    document.getElementById('idField').value = id;
+                    document.getElementById('formView').submit();
+                }
+            </script>
         </div>
     </div>
 </div>
