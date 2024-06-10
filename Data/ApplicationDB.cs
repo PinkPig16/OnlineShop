@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnlineShop.Models;
+using System.Reflection.Emit;
 
 namespace OnlineShop.Data
 {
-    public class ApplicationDB : DbContext
+    public class ApplicationDB : IdentityDbContext<User>
     {
         public DbSet<User> users { get; set; } = null!;
         public DbSet<Product> products { get; set; } = null!;
@@ -14,7 +16,7 @@ namespace OnlineShop.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>()
+            base.OnModelCreating(modelBuilder);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
